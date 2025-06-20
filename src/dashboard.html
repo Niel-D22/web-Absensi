@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/ds.css">
+</head>
+<body>
+
+    <!-- header navigasi -->
+     <div class="head">
+    <header>
+    <div class="container">
+      <div class="logo-full">
+            <h1 class="logo">ISG</h1>
+            <h4>informatics study groups</h4>
+            </div>
+        <nav class="nav-wrapper">
+    
+        <ul class="nav">
+            <li><a href="" id="nav-home">Home</a></li>
+            <li><a href=""  id="nav-profil">Profil</a></li>
+            <li><a href=""  id="nav-jadwal">Jadwal</a></li>
+            <li><a href=""  id="nav-history" >History</a></li>
+        </ul>
+         <div class="nav-right">
+    <button class="logout-btn" id="logout-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
+    <path d="M6 2a2 2 0 0 0-2 2v2h1V4a1 1 0 0 1 1-1h6v10H6a1 1 0 0 1-1-1v-2H4v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6z"/>
+    <path d="M.146 8.354a.5.5 0 0 1 0-.708L3.793 4l.707.707L1.707 8l2.793 3.293-.707.707L.146 8.354z"/>
+  </svg> Logout</button>
+    <div class="burger-menu" id="burger">
+      &#9776; <!-- Ini adalah simbol ☰ -->
+    </div>
+        </nav>
+
+   <!-- BURGER MENU DROPDOWN -->
+  <div class="burger" id="burgerDown">
+    <ul>
+      <li><a href="#" onclick="tampilan('home')">Home</a></li>
+      <li><a href="#" onclick="tampilan('profil')">Profil</a></li>
+      <li><a href="#" onclick="tampilan('jadwal')">Jadwal</a></li>
+      <li><a href="#" onclick="tampilan('history')">History</a></li>
+    </ul>
+  </div>
+        </header>
+        </div>
+    <!-- header navigasi -->
+            
+<!-- halman home -->
+<div class="user" id="home">
+<h2 >Selamat datang, <span id="nama-user"></span>!</h2>
+<p>Silahkan liat jadwal dan absen jika ada dan jangan lupa belajar</p>
+</div>
+
+  <div id="profil" style="display: none;">Ini Halaman Profil</div>
+<div id="jadwal" style="display: none;">Ini Halaman Jadwal</div>
+<div id="history" style="display: none;">Ini Halaman History</div>
+
+
+
+
+
+
+
+    <script src="javascript/dashboard.js"></script>
+</body>
+</html>

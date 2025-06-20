@@ -1,0 +1,177 @@
+/* ========== RESET & GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  width: 220px;
+  background-color: #0f1c38;
+  color: white;
+  padding: 30px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #74b9ff;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main-content {
+  margin-left: 220px;
+  padding: 40px;
+  flex: 1;
+  position: relative;
+}
+
+.judul {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #0f1c38;
+}
+
+.container1 h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* ========== DASHBOARD ========== */
+.dashboard-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.dashboard {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/* CARD STYLE */
+.card {
+  width: 220px;
+  height: 100px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+/* Content dalam Card */
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content .label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.card-content .value {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* ========== CARD COLORS ========== */
+.bg-blue {
+  background: linear-gradient(to bottom, #5c9ded, #b8c9f1);
+}
+
+.bg-pink {
+  background: linear-gradient(to bottom, #f290b5, #f7c6d9);
+}
+
+.bg-green {
+  background: linear-gradient(to bottom, #93e0c6, #cbf1e6);
+}
+
+/* ========== MENU BUTTONS (Optional) ========== */
+.menu {
+  display: flex;
+justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 119px;
+  gap: 70px;
+
+  width: 1000px;
+}
+
+.menu button {
+  width: 180px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #0f1c38;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu button:hover {
+  background-color: #2d4b85;
+}
+
