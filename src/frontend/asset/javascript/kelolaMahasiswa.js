@@ -18,6 +18,7 @@ mahasiswaList.forEach((mhs, index) => {
     <td>${index + 1}</td>
     <td>${mhs.nama}</td>
     <td>${mhs.nim}</td>
+    <td>${mhs.semester || "-"}</td>
     <td><button onclick="hapusMahasiswa('${mhs.nim}')">Hapus</button>
         <button onclick="editMahasiswa('${mhs.nim}')">Edit</button>
     </td>
@@ -37,36 +38,33 @@ function hapusMahasiswa(nimTarget) {
   );
   //simpan ke dalam localStorage lagi
   localStorage.setItem("users", JSON.stringify(updateUsers));
+  showAlert("Berhasil Hapus Data mahasiswa", "#4CAF50")
 
-  const isiWeb = document.getElementById("isi-web");
-  fetch("./pages/mahasiswa.html")
-    .then((res) => res.text())
-    .then((html) => {
-      isiWeb.innerHTML = html;
-      import("./asset/javascript/kelolaMahasiswa.js");
-    });
+renderTabelMahasisw()
 }
 function editMahasiswa(nimTarget) {
+    const user = JSON.parse(localStorage.getItem("users")) || [];
   const mhs = user.find((u) => u.role == "mahasiswa" && u.nim == nimTarget);
-  if (!mhs) return alert("mahasiswa tidak di temukan!");
+  if (!mhs) return ShowAlert("mahasiswa tidak di temukan!");
 
   const namaBaru = prompt("edit nama:", mhs.nama);
   const nimBaru = prompt("edit nim:", mhs.nim);
-  if (!namaBaru || !nimBaru) return alert("data harus di isi");
+  const semester= prompt("Edit Semester:", mhs.semester || "");
+  if (!namaBaru || !nimBaru || !semester) return showAlert("data harus di isi");
+
+if(parseInt(semester) < 1 || parseInt(semester)> 8) 
+  return showAlert("semester harus diantara 1-8");
 
   mhs.nama = namaBaru;
   mhs.nim = nimBaru;
+  mhs.semester= semester;
 
   localStorage.setItem("users", JSON.stringify(user));
 
-  const isiWeb = document.getElementById("isi-web");
-  fetch("pages/mahasiswa.html")
-    .then((res) => res.text())
-    .then((html) => {
-      isiWeb.innerHTML = html;
-      import("./asset/javascript/kelolaMahasiswa.js");
-    });
+    renderTabelMahasisw()
+
 }
 
 window.hapusMahasiswa = hapusMahasiswa;
 window.editMahasiswa = editMahasiswa;
+renderTabelMahasisw();

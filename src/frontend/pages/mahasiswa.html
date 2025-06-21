@@ -1,0 +1,63 @@
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f0f0f0;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  button {
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  button:nth-child(1) {
+    background-color: #e74c3c;
+    color: white;
+  }
+
+  button:nth-child(2) {
+    background-color: #3498db;
+    color: white;
+  }
+</style>
+
+
+<h1>Daftar Mahasiswa</h1>
+
+
+<table border="1" cellpadding="10">
+<thead>
+    <tr>
+        <th>NO</th>
+        <th>Nama</th>
+        <th>NIM</th>
+        <th>SEMESTER</th>
+        <th>AKSI</th>
+    </tr>
+</thead>
+<tbody id="tabelMahasiswa">
+
+</tbody>
+</table>
+<script type="module" src="./asset/javascript/alert.js"></script>

@@ -3,6 +3,7 @@ function loadPage(page) {
     .then(res => res.text())
     .then(html => {
       document.getElementById('isi-web').innerHTML = html;
+      
 
       // Import JS berdasarkan halaman yang dibuka
       if (page === "mahasiswa") {
@@ -19,3 +20,4 @@ function loadPage(page) {
 window.onload = () => {
   loadPage("home");
 };
+

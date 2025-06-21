@@ -21,14 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Cek input harus diisi
     if (!nama || !nim) {
-      alert("Nama dan Nim harus diisi");
+      showAlert("Nama dan Nim harus diisi");
       return;
     }
     
     if (isNew) {
       // Jika user baru, cek terlebih dahulu apakah nim sudah ada
       if (users.find((u) => u.nim === nim)) {
-        alert('Nim sudah terdaftar');
+        showAlert('Nim sudah terdaftar',);
         return;
       }
 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Simpan array users ke localStorage dengan key "users" (bukan 'userAktif')
       localStorage.setItem('users', JSON.stringify(users)); 
-      alert('Registrasi berhasil! Sekarang login tanpa centang');
+      showAlert("Registrasi berhasil! Sekarang login tanpa centang", "#4CAF50");
       form.reset();
       return;
     }
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Proses login user
     const user = users.find(u => u.nama === nama && u.nim === nim);
     if(!user) {
-      alert('Data tidak ditemukan. Centang jika belum pernah daftar');
+      showAlert('Data tidak ditemukan. Centang jika belum pernah daftar');
       return;
     }
     
