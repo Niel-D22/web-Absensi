@@ -20,5 +20,5 @@ app.use("/api/mahasiswa", mahasiswaRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log("server running di http://localhost:${PORT}");
+  console.log(`server running di http://localhost:${PORT}`);
 });
