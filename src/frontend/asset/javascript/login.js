@@ -12,16 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return showAlert("Nama dan NIM harus diisi");
     }
 
-    // Admin login manual
+    // ADMIN LOGIN LANGSUNG
     if (nama === "admin" && nim === "admin123") {
-      const admin = { nama: "admin", nim: "admin123", role: "admin" };
+      const admin = {
+        nama: "admin",
+        nim: "admin123",
+        role: "admin",
+      };
       localStorage.setItem("userAktif", JSON.stringify(admin));
-      return window.location.href = "admin.html";
+      return (window.location.href = "admin.html");
     }
 
+    // MAHASISWA REGISTRASI (centang)
     if (isNew) {
-       console.log("Mengirim data ke server...");
-      // Coba registrasi ke backend
       try {
         const res = await fetch("http://localhost:3000/api/mahasiswa", {
           method: "POST",
@@ -29,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify({
             nama_mhs: nama,
             nim_mhs: nim,
-            semester_mhs: "1", // default semester awal
+            semester_mhs: "1", // default
           }),
         });
 
@@ -47,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Login normal: cek ke backend apakah nim dan nama cocok
+    // LOGIN MAHASISWA
     try {
       const res = await fetch("http://localhost:3000/api/mahasiswa");
       const data = await res.json();
@@ -57,12 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return showAlert("Data tidak ditemukan. Centang jika belum daftar.");
       }
 
-      localStorage.setItem("userAktif", JSON.stringify({
-        nama: user.nama_mhs,
-        nim: user.nim_mhs,
-        role: user.role || "mahasiswa",
-        semester: user.semester_mhs
-      }));
+      localStorage.setItem(
+        "userAktif",
+        JSON.stringify({
+          nama: user.nama_mhs,
+          nim: user.nim_mhs,
+          role: user.role || "mahasiswa",
+          semester: user.semester_mhs,
+        })
+      );
       window.location.href = "dashboard.html";
     } catch (err) {
       console.error("Gagal login:", err);

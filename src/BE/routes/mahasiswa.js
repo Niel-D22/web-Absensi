@@ -16,23 +16,25 @@ router.get('/',(req ,res) =>{
 // 2. create tambah data mahasiswa
 // endpoint POST /api/mahasiswa
 
-router.post('/', (req, res)=>{
-    console.log("Data diterima dari frontend:", req.body);
-    const {nama_mhs,nim_mhs,semester_mhs}= req.body;
+router.post("/", (req, res) => {
+  const { nama_mhs, nim_mhs, semester_mhs } = req.body;
+
   if (!nama_mhs || !nim_mhs || !semester_mhs) {
     return res.status(400).json({ message: "Semua data harus diisi" });
   }
-    db.query(
-        'INSERT INTO mahasiswa (nama_mhs,nim_mhs,semester_mhs,role) VALUES (?,?,?,?)',
-        [nama_mhs, nim_mhs, semester_mhs,'mahasiswa'],
-        (err,result)=>{
-            if(err){
-                return res.status(500).json({error: err.message});
-            }
-            res.status(201).json({id: result.insertId})
-        }
-    );
+
+  // Tentukan role secara otomatis
+  const role = nama_mhs.toLowerCase() === "admin" ? "admin" : "mahasiswa";
+
+  const sql = "INSERT INTO mahasiswa (nama_mhs, nim_mhs, semester_mhs, role) VALUES (?, ?, ?, ?)";
+  db.run(sql, [nama_mhs, nim_mhs, semester_mhs, role], function (err) {
+    if (err) {
+      return res.status(500).json({ message: "Gagal tambah data" });
+    }
+    res.status(201).json({ message: "Berhasil tambah mahasiswa" });
+  });
 });
+
 
 // 3. UPDATE ubah data mahasiswa dari nim
 // endpoint PUT /api/mahasiswa/:nim

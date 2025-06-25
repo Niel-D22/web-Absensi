@@ -1,1 +1,67 @@
-<script type="module" src="./asset/javascript/alert.js"></script>
+<!-- pages/jadwal.html -->
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+
+<div class="container py-4">
+  <h2 class="mb-3">Kelola Jadwal</h2>
+
+  <!-- Daftar kartu -->
+  <div id="daftarJadwal" class="row mb-4">
+    <p class="text-muted" id="emptyJadwal">Belum ada jadwal.</p>
+  </div>
+
+  <!-- Detail akan muncul di sini -->
+  <div id="detailContainer"></div>
+
+  <!-- Form tambah jadwal -->
+  <form id="jadwalForm" class="mt-5">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="materi" class="form-label">Materi</label>
+        <input type="text" id="materi" name="materi" class="form-control" required>
+      </div>
+      <div class="col-md-3">
+        <label for="tanggal" class="form-label">Tanggal</label>
+        <input type="date" id="tanggal" name="tanggal" class="form-control" required>
+      </div>
+      <div class="col-md-3">
+        <label for="ruangan" class="form-label">Ruangan</label>
+        <input type="text" id="ruangan" name="ruangan" class="form-control" required>
+      </div>
+      <div class="col-md-3">
+        <label for="jam_mulai" class="form-label">Jam Mulai</label>
+        <input type="time" id="jam_mulai" name="jam_mulai" class="form-control" required>
+      </div>
+      <div class="col-md-3">
+        <label for="jam_selesai" class="form-label">Jam Selesai</label>
+        <input type="time" id="jam_selesai" name="jam_selesai" class="form-control" required>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-success" type="submit">Tambah Jadwal</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Template untuk detail tabel -->
+<template id="tplDetailTable">
+  <div id="detailArea" class="mt-4">
+    <h4 class="detail-title mb-3"></h4>
+    <div id="detailTable" class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Status</th>
+            <th>Jam Absen</th>
+            <th>No Meja</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</template>

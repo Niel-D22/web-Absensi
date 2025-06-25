@@ -18,6 +18,12 @@ app.get("/", (req, res) => {
 const mahasiswaRouter = require("./routes/mahasiswa");
 app.use("/api/mahasiswa", mahasiswaRouter);
 
+const jadwalRouter = require("./routes/jadwal");
+app.use("/api/jadwal", jadwalRouter);
+
+const absensiRouter = require("./routes/absensi");
+app.use("/api/absensi", absensiRouter);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`server running di http://localhost:${PORT}`);

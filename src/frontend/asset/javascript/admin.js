@@ -1,15 +1,19 @@
+
 function loadPage(page) {
   fetch(`pages/${page}.html`)
     .then(res => res.text())
     .then(html => {
       document.getElementById('isi-web').innerHTML = html;
-      
 
-      // Import JS berdasarkan halaman yang dibuka
-      if (page === "mahasiswa") {
-        import('./kelolaMahasiswa.js');
-      } else if (page === "home") {
-        // import('./asset/javascript/home.js'); // jika ada file untuk home
+if (page === "jadwal") {
+import('./fromJadwal.js').then(module => {
+  module.default(); // Panggil fungsi initJadwalPage()
+}).catch(err => console.error("Gagal load fromJadwal.js:", err));
+
+
+
+      } else if (page === "mahasiswa") {
+        import("./kelolaMahasiswa.js").catch(console.error);
       }
     })
     .catch(err => {
@@ -17,7 +21,6 @@ function loadPage(page) {
       console.error(err);
     });
 }
-window.onload = () => {
-  loadPage("home");
-};
 
+// Jangan panggil ini langsung tanpa user action!
+// window.onload = () => loadPage("home");
