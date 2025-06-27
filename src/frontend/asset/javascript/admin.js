@@ -1,4 +1,6 @@
 
+
+
 function loadPage(page) {
   fetch(`pages/${page}.html`)
     .then(res => res.text())
@@ -22,5 +24,6 @@ import('./fromJadwal.js').then(module => {
     });
 }
 
-// Jangan panggil ini langsung tanpa user action!
-// window.onload = () => loadPage("home");
+window.addEventListener("DOMContentLoaded", () => {
+  loadPage("home"); // atau ganti "home" kalau nama file-nya home.html
+});
