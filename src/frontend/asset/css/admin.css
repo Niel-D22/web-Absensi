@@ -7,9 +7,9 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  display: flex;
   min-height: 100vh;
   background-color: #f0f2f5;
+  display: flex;
 }
 
 /* ========== SIDEBAR ========== */
@@ -32,6 +32,7 @@ body {
 
 .sidebar ul {
   list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li {
@@ -78,19 +79,17 @@ body {
   margin-top: 20px;
 }
 
-
 .dashboard {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
 }
 
-
 /* CARD STYLE */
-.card {
+.dashboard .card {
   width: 220px;
-  height: 100px;
+  height: 140px;
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -100,7 +99,7 @@ body {
   transition: transform 0.3s ease;
 }
 
-.card:hover {
+.dashboard .card:hover {
   transform: translateY(-5px);
 }
 
@@ -113,7 +112,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 15px;
+  
 }
 
 /* Content dalam Card */
@@ -132,6 +131,9 @@ body {
   font-weight: bold;
   margin-top: 4px;
 }
+.value{
+  text-align: center;
+}
 
 /* ========== CARD COLORS ========== */
 .bg-blue {
@@ -146,21 +148,20 @@ body {
   background: linear-gradient(to bottom, #93e0c6, #cbf1e6);
 }
 
-/* ========== MENU BUTTONS (Optional) ========== */
+/* ========== MENU BUTTONS ========== */
 .menu {
   display: flex;
-justify-content: center;
+  justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  margin-left: 119px;
+  margin: 40px auto;
   gap: 70px;
-
-  width: 1000px;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
 
 .menu button {
   width: 180px;
-  padding: 8px 14px;
+  padding: 10px 16px;
   font-size: 14px;
   font-weight: 500;
   background-color: #0f1c38;
@@ -174,4 +175,3 @@ justify-content: center;
 .menu button:hover {
   background-color: #2d4b85;
 }
-

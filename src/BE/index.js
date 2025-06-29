@@ -24,6 +24,9 @@ app.use("/api/jadwal", jadwalRouter);
 const absensiRouter = require("./routes/absensi");
 app.use("/api/absensi", absensiRouter);
 
+const historyRouter = require("./routes/history");
+app.use("/api/history", historyRouter);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`server running di http://localhost:${PORT}`);

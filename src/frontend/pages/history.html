@@ -1,1 +1,38 @@
 <script type="module" src="./asset/javascript/alert.js"></script>
+<div class="judul">Riwayat Jadwal</div>
+
+<div class="container1">
+  <h1>Semua Jadwal yang Pernah Dibuat</h1>
+  
+  <table id="tabelJadwal" class="table">
+    <thead>
+      <tr>
+        <th>ID Jadwal</th>
+        <th>Nama Mata Kuliah</th>
+        <th>Tanggal</th>
+        <th>Jam</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- data diisi lewat JS -->
+    </tbody>
+  </table>
+
+  <!-- Tabel detail absensi -->
+  <div id="detailAbsensi" style="display: none; margin-top: 30px;">
+    <h2>Detail Mahasiswa yang Absen</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>NIM</th>
+          <th>Semester</th>
+          <th>Tanggal Absen</th>
+          <th>Jam Absen</th>
+        </tr>
+      </thead>
+      <tbody id="absensiBody"></tbody>
+    </table>
+  </div>
+</div>

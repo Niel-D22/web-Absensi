@@ -1,6 +1,5 @@
 
-
-function renderTabelMahasisw(){
+export function renderTabelMahasiswa(){
 fetch("http://localhost:3000/api/mahasiswa")
 .then(response => response.json())
 .then(mahasiswaList =>{
@@ -53,7 +52,7 @@ function hapusMahasiswa(id_mhs) {
     })
     .then((data) => {
       showAlert(data.message || "Berhasil hapus data mahasiswa", "#4CAF50");
-      renderTabelMahasisw();
+      renderTabelMahasiswa();
     })
     .catch((err) => {
       console.error("Gagal menghapus:", err);
@@ -98,7 +97,7 @@ fetch(`http://localhost:3000/api/mahasiswa/${id_mhs}`,{
 .then((data)=>{
   if(data.message){
 showAlert(data.message, "#4CAF50");
-    renderTabelMahasisw()
+    renderTabelMahasiswa()
   }else{
     showAlert("gagal mengedit data"," #F44336")
   }
@@ -113,4 +112,4 @@ showAlert(data.message, "#4CAF50");
 
 window.hapusMahasiswa = hapusMahasiswa;
 window.editMahasiswa = editMahasiswa;
-renderTabelMahasisw();
+renderTabelMahasiswa();

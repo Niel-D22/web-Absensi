@@ -7,6 +7,8 @@ function loadPage(page) {
     .then(html => {
       document.getElementById('isi-web').innerHTML = html;
 
+setTimeout(()=>{
+
 if (page === "jadwal") {
 import('./fromJadwal.js').then(module => {
   module.default(); // Panggil fungsi initJadwalPage()
@@ -15,8 +17,18 @@ import('./fromJadwal.js').then(module => {
 
 
       } else if (page === "mahasiswa") {
-        import("./kelolaMahasiswa.js").catch(console.error);
+
+        import("./kelolaMahasiswa.js").then(module =>{
+          module.renderTabelMahasiswa();
+        });
+        
       }
+      else if (page === "history") {
+
+        import("./historyJadwal.js");
+        
+      }
+      },0);
     })
     .catch(err => {
       document.getElementById('isi-web').innerHTML = '<p>Halaman tidak ditemukan.</p>';

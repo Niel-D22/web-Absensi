@@ -1,45 +1,41 @@
- <div class="judul">Dashboard</div>
+<div class="judul">Dashboard</div>
 
-      <div class="container1">
-        <h1>SELAMAT DATANG ADMIN!</h1>
+<div class="container1">
+  <h1>SELAMAT DATANG ADMIN!</h1>
 
-        <!-- Dashboard Cards -->
-        <div class="dashboard-wrapper">
-          <div class="dashboard">
-            <div class="card bg-blue">
-              <div class="card-icon" style="color: #4a90e2">📘</div>
-              <div class="card-content">
-                <span class="label">TOTAL MAHASISWA</span>
-                <span class="value" id="totalMahasiswa">0</span>
-              </div>
-            </div>
-
-            <div class="card bg-pink">
-              <div class="card-icon" style="color: #e17085">📅</div>
-              <div class="card-content">
-                <span class="label">TOTAL JADWAL</span>
-                <span class="value" id="totalJadwal">0</span>
-              </div>
-            </div>
-
-            <div class="card bg-green">
-              <div class="card-icon" style="color: #00b894">📊</div>
-              <div class="card-content">
-                <span class="label">TOTAL HISTORY</span>
-                <span class="value" id="totalHistory">0</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ✅ MENU BUTTONS (dalam container1) -->
-        <div class="menu">
-          <button onclick="loadPage('mahasiswa')">
-            Kelola Mahasiswa
-          </button>
-          <button onclick="loadPage('jadwal')">Kelola Jadwal</button>
-          <button onclick="loadPage('history')">Kelola Riwayat</button>
-
+  <!-- Dashboard Cards -->
+  <div class="dashboard-wrapper">
+    <div class="dashboard">
+      <div class="card bg-blue">
+        <div class="card-icon" style="color: #4a90e2">📘</div>
+        <div class="card-content">
+          <span class="label">TOTAL MAHASISWA</span>
+          <span class="value" id="totalMahasiswa">0</span>
         </div>
       </div>
-      <script type="module" src="./asset/javascript/alert.js"></script>
+
+      <div class="card bg-pink">
+        <div class="card-icon" style="color: #e17085">📅</div>
+        <div class="card-content">
+          <span class="label">TOTAL JADWAL</span>
+          <span class="value" id="totalJadwal">0</span>
+        </div>
+      </div>
+
+      <div class="card bg-green">
+        <div class="card-icon" style="color: #00b894">📊</div>
+        <div class="card-content">
+          <span class="label">TOTAL HISTORY</span>
+          <span class="value" id="totalHistory">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Buttons -->
+  <div class="menu">
+    <button onclick="loadPage('mahasiswa')">Kelola Mahasiswa</button>
+    <button onclick="loadPage('jadwal')">Kelola Jadwal</button>
+    <button onclick="loadPage('history')">Kelola Riwayat</button>
+  </div>
+</div>

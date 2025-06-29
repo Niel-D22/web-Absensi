@@ -25,7 +25,7 @@ export default function initJadwalPage() {
   });
 
   // 1) Load  render kartu jadwal
-  async function loadJadwal() {
+ async function loadJadwal() {
     try {
       const res = await fetch("http://localhost:3000/api/jadwal");
       const data = await res.json();
@@ -40,7 +40,7 @@ export default function initJadwalPage() {
         const col = document.createElement("div");
         col.className = "col-md-4 mb-3";
         col.innerHTML = `
-          <div class="card shadow-sm h-100">
+          <div class="card shadow-sm h-100  text-dark">
             <div class="card-body d-flex flex-column">
               <div class="flex-grow-1 clickable">
                 <h5 class="card-title">${j.materi}</h5>
