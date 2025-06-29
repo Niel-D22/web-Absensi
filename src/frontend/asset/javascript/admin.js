@@ -23,11 +23,12 @@ import('./fromJadwal.js').then(module => {
         });
         
       }
-      else if (page === "history") {
+  else if (page === "history") {
+  import("./historyJadwal.js").then(module => {
+    module.default(); // panggil initHistoryPage()
+  }).catch(err => console.error("Gagal load historyJadwal.js:", err));
+}
 
-        import("./historyJadwal.js");
-        
-      }
       },0);
     })
     .catch(err => {

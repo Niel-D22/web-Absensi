@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const db = require('../db');
+const db = require("../config/db");
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   const id_jadwal = req.query.id_jadwal;
   if (!id_jadwal) {
     return res.status(400).json({ message: "Parameter id_jadwal wajib diisi" });
@@ -19,11 +19,11 @@ router.get('/', (req, res) => {
 
   db.query(sql, [id_jadwal], (err, results) => {
     if (err) {
-      console.error('Error query absensi:', err);  // <-- Tambah ini
+      console.error("Error query absensi:", err); // <-- Tambah ini
       return res.status(500).json({ message: "Gagal mengambil data absensi" });
     }
-    console.log('Hasil query absensi:', results); // <-- Tambah ini untuk cek data yang dikirim
+    console.log("Hasil query absensi:", results); // <-- Tambah ini untuk cek data yang dikirim
     res.json(results);
   });
 });
-module.exports = router; 
+module.exports = router;

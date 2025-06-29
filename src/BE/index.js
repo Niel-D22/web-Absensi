@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const db = require("./db");
+const db = require("./config/db");
 
 //inisialisasi aplikasi
 const app = express();
@@ -24,7 +24,7 @@ app.use("/api/jadwal", jadwalRouter);
 const absensiRouter = require("./routes/absensi");
 app.use("/api/absensi", absensiRouter);
 
-const historyRouter = require("./routes/history");
+const historyRouter = require("./routes/kelolaHistory");
 app.use("/api/history", historyRouter);
 
 const PORT = process.env.PORT || 3000;
