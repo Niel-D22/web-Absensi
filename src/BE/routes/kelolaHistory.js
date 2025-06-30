@@ -17,12 +17,13 @@ router.get("/absensi/:id_jadwal", (req, res) => {
   const sql = `
     SELECT m.nama_mhs, m.nim_mhs, m.semester_mhs, a.Waktu_absen, a.status,a.nomor_meja
     FROM absensi a
-    JOIN mahasiswa m ON a.id_mhs = m.id_mhs
+    JOIN mahasiswa m ON a.id_mahasiswa = m.id_mhs
     WHERE a.id_jadwal = ?
   `;
   db.query(sql, [id], (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
+
   });
 });
 
