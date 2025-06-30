@@ -8,6 +8,8 @@ const app = express();
 //passang middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
+
 
 // router dasar
 app.get("/", (req, res) => {

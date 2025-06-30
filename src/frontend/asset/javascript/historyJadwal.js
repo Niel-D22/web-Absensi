@@ -1,5 +1,5 @@
 export default function initHistoryPage() {
-  fetch("http://localhost:3000/api/history/jadwal")
+  fetch("http://localhost:3000/api/history/")
     .then((res) => res.json())
     .then((data) => {
       console.log("Data dari backend:", data);
@@ -21,7 +21,7 @@ function renderTabelJadwal(jadwalList) {
       <td>${jadwal.jam_mulai}</td>
       <td>${jadwal.jam_selesai}</td>
       <td>${jadwal.ruangan}</td>
-      <td><button class="lihat-detail-btn" data-id="${jadwal.id_jadwal}">Lihat Detail</button></td>
+      <td><button class="lihat-detail-btn" data-id="${jadwal.id_history}" style="border-radius:10px; height:40px; width:100px;  background-color:#4CAF30; ">Lihat Detail</button></td>
     `;
     tbody.appendChild(tr);
   });

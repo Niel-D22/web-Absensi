@@ -102,22 +102,24 @@ export default function initJadwalPage() {
   }
 
   // 3) Hapus jadwal
-  async function deleteJadwal(id) {
-    const konfirmasi = confirm("Yakin ingin menghapus jadwal ini?");
-    if (!konfirmasi) return;
+function deleteJadwal(id) {
+  fetch(`http://localhost:3000/api/jadwal/${id}/pindah-ke-history`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("Gagal hapus & pindah ke history");
+      return res.json();
+    })
+    .then((data) => {
+      alert(data.message);
+      loadJadwal(); // refresh tampilan
+    })
+    .catch((err) => {
+      console.error("Delete error:", err);
+    });
+}
 
-    try {
-      const res = await fetch(`http://localhost:3000/api/jadwal/${id}`, {
-        method: "DELETE"
-      });
-      if (!res.ok) throw new Error();
-      detailContainer.innerHTML = "";
-      loadJadwal();
-    } catch (e) {
-      alert("Gagal menghapus jadwal.");
-      console.error("Delete error:", e);
-    }
-  }
 
   // 4) Tangani submit form tambah jadwal
   form.addEventListener("submit", async e => {
