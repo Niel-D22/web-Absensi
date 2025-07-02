@@ -51,28 +51,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // LOGIN MAHASISWA
-    try {
-      const res = await fetch("http://localhost:3000/api/mahasiswa");
-      const data = await res.json();
+    // LOGIN MAHASISWA
+try {
+  const res = await fetch("http://localhost:3000/api/mahasiswa/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nim_mhs: nim }),
+  });
 
-      const user = data.find((u) => u.nama_mhs === nama && u.nim_mhs === nim);
-      if (!user) {
-        return showAlert("Data tidak ditemukan. Centang jika belum daftar.");
-      }
+  const data = await res.json();
+  if (!res.ok) {
+    return showAlert(data.message || "Data tidak ditemukan");
+  }
 
-      localStorage.setItem(
-        "userAktif",
-        JSON.stringify({
-          nama: user.nama_mhs,
-          nim: user.nim_mhs,
-          role: user.role || "mahasiswa",
-          semester: user.semester_mhs,
-        })
-      );
-      window.location.href = "dashboard.html";
-    } catch (err) {
-      console.error("Gagal login:", err);
-      showAlert("Terjadi kesalahan saat login", "#f44336");
-    }
+  // Cek nama juga untuk keamanan ganda
+  if (data.nama.toLowerCase() !== nama.toLowerCase()) {
+    return showAlert("Nama tidak cocok dengan NIM");
+  }
+
+  localStorage.setItem("userAktif", JSON.stringify(data));
+  window.location.href = "dashboard.html";
+} catch (err) {
+  console.error("Gagal login:", err);
+  showAlert("Terjadi kesalahan saat login", "#f44336");
+}
+
   });
 });

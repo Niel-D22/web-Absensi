@@ -1,0 +1,48 @@
+.home-section {
+  padding: 2rem;
+  font-family: 'Figtree', sans-serif;
+}
+
+.welcome-box {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Animasi Slide-in */
+.slide-in-top {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: slideTop 0.8s forwards ease-out;
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideLeft 1s forwards ease-out;
+}
+
+.delay {
+  animation-delay: 0.3s;
+}
+
+@keyframes slideTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}

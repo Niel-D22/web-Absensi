@@ -23,21 +23,23 @@ router.post("/", (req, res) => {
 // Pindahkan dan hapus jadwal
 router.post("/:id/pindah-ke-history", (req, res) => {
   const idJadwal = req.params.id;
-
+  console.log("Memproses jadwal dengan ID:", idJadwal);
   db.query("SELECT * FROM jadwal WHERE id_jadwal = ?", [idJadwal], (err, result) => {
     if (err || result.length === 0) return res.status(500).json({ error: "Jadwal tidak ditemukan." });
 
     const jadwal = result[0];
-
+    console.error("Gagal ambil jadwal:", err);
     db.query(
-      `INSERT INTO history (materi, tanggal, jam_mulai, jam_selesai, ruangan) VALUES (?, ?, ?, ?, ?)`,
+      `INSERT INTO history_jadwal (materi, tanggal, jam_mulai, jam_selesai, ruangan) VALUES (?, ?, ?, ?, ?)`,
       [jadwal.materi, jadwal.tanggal, jadwal.jam_mulai, jadwal.jam_selesai, jadwal.ruangan],
       (err2, insertResult) => {
         if (err2) return res.status(500).json({ error: "Gagal simpan ke history." });
 
         const idHistoryBaru = insertResult.insertId;
+    console.log("Berhasil simpan ke history, ID:", idHistoryBaru);
+        db.query(`UPDATE absensi SET id_history = ?, id_jadwal = NULL WHERE id_jadwal = ?
+`, [idHistoryBaru, idJadwal], (err3) => {
 
-        db.query(`UPDATE absensi SET id_history = ? WHERE id_jadwal = ?`, [idHistoryBaru, idJadwal], (err3) => {
           if (err3) return res.status(500).json({ error: "Gagal update absensi." });
 
           db.query("DELETE FROM jadwal WHERE id_jadwal = ?", [idJadwal], (err4) => {
